@@ -35,6 +35,8 @@ namespace epitmenyado
             {
                 lista.Add(new Adat(i));
             }
+
+            Console.ReadKey();
         }
     }
 }
