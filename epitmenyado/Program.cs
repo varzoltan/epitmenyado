@@ -14,7 +14,7 @@ namespace epitmenyado
         public string hazszam { get; set; }
         public string adosav { get; set; }
         public int alapterulet { get; set; }
-        public string utca_egybe { get { return utca + " utca " + hazszam; } }
+        public string utca_egybe { get { return utca + " utca " + hazszam; } }//Jellemző
         public Adat(string sor)//konstruktor
 
         {
@@ -28,6 +28,7 @@ namespace epitmenyado
     }
     internal class Program
     {
+        static string[] ado = File.ReadAllLines("utca.txt").First().Split(); 
         static void Main(string[] args)
         {
             
@@ -57,8 +58,47 @@ namespace epitmenyado
             {
                 Console.WriteLine("Nem szerepel az adatállományban");
             }
+
             
             Console.ReadKey();
+        }
+
+        //4.feladat
+        static int adosavok(string adosav, int alapterulet)
+        {
+            if (adosav == "A")
+            {
+                if (int.Parse(ado[0]) * alapterulet < 10000)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return int.Parse(ado[0]) * alapterulet;
+                }
+            }
+            else if (adosav == "B")
+            {
+                if (int.Parse(ado[1]) * alapterulet < 10000)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return int.Parse(ado[1]) * alapterulet;
+                }
+            }
+            else
+            {
+                if (int.Parse(ado[2]) * alapterulet < 10000)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return int.Parse(ado[2]) * alapterulet;
+                }
+            }
         }
     }
 }
